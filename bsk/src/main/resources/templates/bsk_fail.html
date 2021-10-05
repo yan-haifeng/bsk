@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="//js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.2.js"></script>
+    <title>-1-0-1-0-</title>
+</head>
+
+<body>
+    <script>
+        document.addEventListener('UniAppJSBridgeReady', function () {
+            var CakePrice = getQueryString('CakePrice')
+            console.log(CakePrice)
+            uni.redirectTo({
+                url:'/pages/secondary/fail?amount='+CakePrice
+            })
+            uni.getEnv(function (res) {
+                console.log('当前环境：' + JSON.stringify(res));
+            });
+            uni.postMessage({
+                data: {
+                    code:1,
+                    action: 'the order pay is fail'
+                }
+            });
+        });
+        function getQueryString(name){
+            // console.log(location);
+            // console.log(location.search);
+            // 1. 获取整个url参数的值的字符串 去掉第一个字符串 按照&分割成一个数组
+            var urlParams = location.search.substr(1).split('&');
+            // var urlParams = location.search.substring(1,location.search.length);
+            // console.log(urlParams);
+            for (var i = 0; i < urlParams.length; i++) {
+                // search=%E9%9E%8B  =前面参数名 以=分割 如果等号前面的和参数名一样 返回=号后面的参数的值
+                if(name == urlParams[i].split('=')[0]){
+                    // 返回当前参数的值 同时转码
+                    return decodeURI(urlParams[i].split('=')[1]);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

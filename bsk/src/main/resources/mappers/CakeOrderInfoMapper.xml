@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zime.bsk.dao.CakeOrderInfoMapper">
+  <resultMap id="BaseResultMap" type="com.zime.bsk.entity.CakeOrderInfo">
+    <id column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="order_carid" jdbcType="VARCHAR" property="orderCarid" />
+    <result column="order_userid" jdbcType="INTEGER" property="orderUserid" />
+    <result column="order_time" jdbcType="TIMESTAMP" property="orderTime" />
+    <result column="order_price" jdbcType="DOUBLE" property="orderPrice" />
+    <result column="order_discount" jdbcType="DOUBLE" property="orderDiscount" />
+    <result column="order_type" jdbcType="INTEGER" property="orderType" />
+    <result column="order_addressid" jdbcType="INTEGER" property="orderAddressid" />
+    <result column="order_deliverytime" jdbcType="VARCHAR" property="orderDeliverytime" />
+    <result column="order_carriage" jdbcType="INTEGER" property="orderCarriage" />
+    <result column="order_state" jdbcType="INTEGER" property="orderState" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    order_id, order_no, order_carid, order_userid, order_time, order_price, order_discount, 
+    order_type, order_addressid, order_deliverytime, order_carriage, order_state
+  </sql>
+  <select id="selectByExample" parameterType="com.zime.bsk.entity.CakeOrderInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from cakeorderinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cakeorderinfo
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cakeorderinfo
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zime.bsk.entity.CakeOrderInfoExample">
+    delete from cakeorderinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zime.bsk.entity.CakeOrderInfo">
+    insert into cakeorderinfo (order_id, order_no, order_carid, 
+      order_userid, order_time, order_price, 
+      order_discount, order_type, order_addressid, 
+      order_deliverytime, order_carriage, order_state
+      )
+    values (#{orderId,jdbcType=INTEGER}, #{orderNo,jdbcType=VARCHAR}, #{orderCarid,jdbcType=VARCHAR}, 
+      #{orderUserid,jdbcType=INTEGER}, #{orderTime,jdbcType=TIMESTAMP}, #{orderPrice,jdbcType=DOUBLE}, 
+      #{orderDiscount,jdbcType=DOUBLE}, #{orderType,jdbcType=INTEGER}, #{orderAddressid,jdbcType=INTEGER}, 
+      #{orderDeliverytime,jdbcType=VARCHAR}, #{orderCarriage,jdbcType=INTEGER}, #{orderState,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zime.bsk.entity.CakeOrderInfo">
+    insert into cakeorderinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="orderNo != null">
+        order_no,
+      </if>
+      <if test="orderCarid != null">
+        order_carid,
+      </if>
+      <if test="orderUserid != null">
+        order_userid,
+      </if>
+      <if test="orderTime != null">
+        order_time,
+      </if>
+      <if test="orderPrice != null">
+        order_price,
+      </if>
+      <if test="orderDiscount != null">
+        order_discount,
+      </if>
+      <if test="orderType != null">
+        order_type,
+      </if>
+      <if test="orderAddressid != null">
+        order_addressid,
+      </if>
+      <if test="orderDeliverytime != null">
+        order_deliverytime,
+      </if>
+      <if test="orderCarriage != null">
+        order_carriage,
+      </if>
+      <if test="orderState != null">
+        order_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCarid != null">
+        #{orderCarid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderUserid != null">
+        #{orderUserid,jdbcType=INTEGER},
+      </if>
+      <if test="orderTime != null">
+        #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderPrice != null">
+        #{orderPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="orderDiscount != null">
+        #{orderDiscount,jdbcType=DOUBLE},
+      </if>
+      <if test="orderType != null">
+        #{orderType,jdbcType=INTEGER},
+      </if>
+      <if test="orderAddressid != null">
+        #{orderAddressid,jdbcType=INTEGER},
+      </if>
+      <if test="orderDeliverytime != null">
+        #{orderDeliverytime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCarriage != null">
+        #{orderCarriage,jdbcType=INTEGER},
+      </if>
+      <if test="orderState != null">
+        #{orderState,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zime.bsk.entity.CakeOrderInfoExample" resultType="java.lang.Long">
+    select count(*) from cakeorderinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update cakeorderinfo
+    <set>
+      <if test="record.orderId != null">
+        order_id = #{record.orderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderNo != null">
+        order_no = #{record.orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderCarid != null">
+        order_carid = #{record.orderCarid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderUserid != null">
+        order_userid = #{record.orderUserid,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderTime != null">
+        order_time = #{record.orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.orderPrice != null">
+        order_price = #{record.orderPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="record.orderDiscount != null">
+        order_discount = #{record.orderDiscount,jdbcType=DOUBLE},
+      </if>
+      <if test="record.orderType != null">
+        order_type = #{record.orderType,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderAddressid != null">
+        order_addressid = #{record.orderAddressid,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderDeliverytime != null">
+        order_deliverytime = #{record.orderDeliverytime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderCarriage != null">
+        order_carriage = #{record.orderCarriage,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderState != null">
+        order_state = #{record.orderState,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update cakeorderinfo
+    set order_id = #{record.orderId,jdbcType=INTEGER},
+      order_no = #{record.orderNo,jdbcType=VARCHAR},
+      order_carid = #{record.orderCarid,jdbcType=VARCHAR},
+      order_userid = #{record.orderUserid,jdbcType=INTEGER},
+      order_time = #{record.orderTime,jdbcType=TIMESTAMP},
+      order_price = #{record.orderPrice,jdbcType=DOUBLE},
+      order_discount = #{record.orderDiscount,jdbcType=DOUBLE},
+      order_type = #{record.orderType,jdbcType=INTEGER},
+      order_addressid = #{record.orderAddressid,jdbcType=INTEGER},
+      order_deliverytime = #{record.orderDeliverytime,jdbcType=VARCHAR},
+      order_carriage = #{record.orderCarriage,jdbcType=INTEGER},
+      order_state = #{record.orderState,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zime.bsk.entity.CakeOrderInfo">
+    update cakeorderinfo
+    <set>
+      <if test="orderNo != null">
+        order_no = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCarid != null">
+        order_carid = #{orderCarid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderUserid != null">
+        order_userid = #{orderUserid,jdbcType=INTEGER},
+      </if>
+      <if test="orderTime != null">
+        order_time = #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderPrice != null">
+        order_price = #{orderPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="orderDiscount != null">
+        order_discount = #{orderDiscount,jdbcType=DOUBLE},
+      </if>
+      <if test="orderType != null">
+        order_type = #{orderType,jdbcType=INTEGER},
+      </if>
+      <if test="orderAddressid != null">
+        order_addressid = #{orderAddressid,jdbcType=INTEGER},
+      </if>
+      <if test="orderDeliverytime != null">
+        order_deliverytime = #{orderDeliverytime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCarriage != null">
+        order_carriage = #{orderCarriage,jdbcType=INTEGER},
+      </if>
+      <if test="orderState != null">
+        order_state = #{orderState,jdbcType=INTEGER},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zime.bsk.entity.CakeOrderInfo">
+    update cakeorderinfo
+    set order_no = #{orderNo,jdbcType=VARCHAR},
+      order_carid = #{orderCarid,jdbcType=VARCHAR},
+      order_userid = #{orderUserid,jdbcType=INTEGER},
+      order_time = #{orderTime,jdbcType=TIMESTAMP},
+      order_price = #{orderPrice,jdbcType=DOUBLE},
+      order_discount = #{orderDiscount,jdbcType=DOUBLE},
+      order_type = #{orderType,jdbcType=INTEGER},
+      order_addressid = #{orderAddressid,jdbcType=INTEGER},
+      order_deliverytime = #{orderDeliverytime,jdbcType=VARCHAR},
+      order_carriage = #{orderCarriage,jdbcType=INTEGER},
+      order_state = #{orderState,jdbcType=INTEGER}
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+</mapper>

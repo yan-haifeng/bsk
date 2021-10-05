@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"swiper { height: ",[0,600],"; position: relative; top: ",[0,-130],"; z-index: 1; }\nwx-swiper-item wx-image { width: 100%; height: ",[0,630],"; }\n.",[1],"infomation_wapper { position: absolute; bottom: ",[0,0],"; left: 3%; z-index: 2; margin: 3% auto; width: 94%; }\n",],undefined,{path:"./pages/secondary/cake-details.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/secondary/cake-details.wxml') } }));

@@ -1,0 +1,1 @@
+<view><view class="icon"><image src="../../static/fail.png"></image></view><view class="tis">订单支付失败</view><view class="back"><view data-event-opts="{{[['tap',[['toUser',['$event']]]]]}}" class="btn" bindtap="__e">首页</view></view></view>

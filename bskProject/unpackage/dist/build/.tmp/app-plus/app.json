@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/classify",
+    "pages/index/cakecar",
+    "pages/index/me",
+    "pages/login/login",
+    "pages/login/register",
+    "pages/secondary/cake-details",
+    "pages/secondary/deliverytime",
+    "pages/secondary/comment",
+    "pages/secondary/comment.1",
+    "pages/secondary/order-details",
+    "pages/secondary/address",
+    "pages/secondary/edit",
+    "pages/secondary/payment",
+    "pages/secondary/success",
+    "pages/secondary/fail",
+    "pages/secondary/web-view"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "贝思客",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#D8D8D8",
+    "selectedColor": "#FF8097",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/index.png",
+        "selectedIconPath": "static/index_click.png"
+      },
+      {
+        "pagePath": "pages/index/classify",
+        "text": "分类",
+        "iconPath": "static/classify.png",
+        "selectedIconPath": "static/classify_click.png"
+      },
+      {
+        "pagePath": "pages/index/cakecar",
+        "text": "购物车",
+        "iconPath": "static/cakecar.png",
+        "selectedIconPath": "static/cakecar_click.png"
+      },
+      {
+        "pagePath": "pages/index/me",
+        "text": "我的",
+        "iconPath": "static/me.png",
+        "selectedIconPath": "static/me_click.png"
+      }
+    ]
+  },
+  "nvueCompiler": "uni-app",
+  "renderer": "auto",
+  "splashscreen": {
+    "alwaysShowBeforeRender": false,
+    "autoclose": true
+  },
+  "appname": "贝思客cover",
+  "compilerVersion": "2.4.2",
+  "usingComponents": {}
+}

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zime.bsk.dao.CakeClassMinMapper">
+  <resultMap id="BaseResultMap" type="com.zime.bsk.entity.CakeClassMin">
+    <id column="cakeclassmin_id" jdbcType="INTEGER" property="cakeclassminId" />
+    <result column="cakeclassmin_classid" jdbcType="INTEGER" property="cakeclassminClassid" />
+    <result column="cakeclassmin_name" jdbcType="VARCHAR" property="cakeclassminName" />
+    <result column="cakeclassmin_info" jdbcType="VARCHAR" property="cakeclassminInfo" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    cakeclassmin_id, cakeclassmin_classid, cakeclassmin_name, cakeclassmin_info
+  </sql>
+  <select id="selectByExample" parameterType="com.zime.bsk.entity.CakeClassMinExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from cakeclassmin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cakeclassmin
+    where cakeclassmin_id = #{cakeclassminId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cakeclassmin
+    where cakeclassmin_id = #{cakeclassminId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zime.bsk.entity.CakeClassMinExample">
+    delete from cakeclassmin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zime.bsk.entity.CakeClassMin">
+    insert into cakeclassmin (cakeclassmin_id, cakeclassmin_classid, 
+      cakeclassmin_name, cakeclassmin_info)
+    values (#{cakeclassminId,jdbcType=INTEGER}, #{cakeclassminClassid,jdbcType=INTEGER}, 
+      #{cakeclassminName,jdbcType=VARCHAR}, #{cakeclassminInfo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zime.bsk.entity.CakeClassMin">
+    insert into cakeclassmin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cakeclassminId != null">
+        cakeclassmin_id,
+      </if>
+      <if test="cakeclassminClassid != null">
+        cakeclassmin_classid,
+      </if>
+      <if test="cakeclassminName != null">
+        cakeclassmin_name,
+      </if>
+      <if test="cakeclassminInfo != null">
+        cakeclassmin_info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cakeclassminId != null">
+        #{cakeclassminId,jdbcType=INTEGER},
+      </if>
+      <if test="cakeclassminClassid != null">
+        #{cakeclassminClassid,jdbcType=INTEGER},
+      </if>
+      <if test="cakeclassminName != null">
+        #{cakeclassminName,jdbcType=VARCHAR},
+      </if>
+      <if test="cakeclassminInfo != null">
+        #{cakeclassminInfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zime.bsk.entity.CakeClassMinExample" resultType="java.lang.Long">
+    select count(*) from cakeclassmin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update cakeclassmin
+    <set>
+      <if test="record.cakeclassminId != null">
+        cakeclassmin_id = #{record.cakeclassminId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cakeclassminClassid != null">
+        cakeclassmin_classid = #{record.cakeclassminClassid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cakeclassminName != null">
+        cakeclassmin_name = #{record.cakeclassminName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cakeclassminInfo != null">
+        cakeclassmin_info = #{record.cakeclassminInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update cakeclassmin
+    set cakeclassmin_id = #{record.cakeclassminId,jdbcType=INTEGER},
+      cakeclassmin_classid = #{record.cakeclassminClassid,jdbcType=INTEGER},
+      cakeclassmin_name = #{record.cakeclassminName,jdbcType=VARCHAR},
+      cakeclassmin_info = #{record.cakeclassminInfo,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zime.bsk.entity.CakeClassMin">
+    update cakeclassmin
+    <set>
+      <if test="cakeclassminClassid != null">
+        cakeclassmin_classid = #{cakeclassminClassid,jdbcType=INTEGER},
+      </if>
+      <if test="cakeclassminName != null">
+        cakeclassmin_name = #{cakeclassminName,jdbcType=VARCHAR},
+      </if>
+      <if test="cakeclassminInfo != null">
+        cakeclassmin_info = #{cakeclassminInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cakeclassmin_id = #{cakeclassminId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zime.bsk.entity.CakeClassMin">
+    update cakeclassmin
+    set cakeclassmin_classid = #{cakeclassminClassid,jdbcType=INTEGER},
+      cakeclassmin_name = #{cakeclassminName,jdbcType=VARCHAR},
+      cakeclassmin_info = #{cakeclassminInfo,jdbcType=VARCHAR}
+    where cakeclassmin_id = #{cakeclassminId,jdbcType=INTEGER}
+  </update>
+</mapper>

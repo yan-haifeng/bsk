@@ -1,0 +1,91 @@
+
+.cakeEvaluation{
+	width: 100%;
+	height: 180rpx;
+	border-top: 10rpx solid #FAFAFA;
+	margin: 0 auto ;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
+}
+.cakeEvaluation_img{
+	border: 1rpx solid #F1F1F1;
+	margin: 38rpx 48rpx;
+	width: 20%;
+}
+.cakeEvaluation_txt{
+	margin: 35rpx -20rpx;
+	width: 80%;
+	height: 200rpx;
+}
+.cakeEvaluation_txt ._span{
+	top: 5rpx;
+	font-size: 17rpx;
+	line-height: 25rpx;
+}
+.cakeEvaluation_txt image{
+	
+	margin: 0 10rpx;
+}
+.cakeEvaluation_txt image:nth-child(1){
+	margin: 0rpx;
+}
+.writingEvaluation{
+	border-top: 2rpx solid #FAFAFA;
+	border-bottom: 2rpx solid #FAFAFA;
+	margin: 0 20rpx;
+	left: 100rpx;
+	height: 550rpx;
+	background-color: #FFFFFF;
+}
+.writingEvaluation image{
+	margin: 10rpx 35rpx;
+}
+.logisticsService{
+	margin: 30rpx -20rpx 0 0;
+	width: 80%;
+	height: 40rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+.logisticsService ._span{
+	margin: 5rpx 55rpx;
+	-webkit-box-flex: left;
+	-webkit-flex: left;
+	    -ms-flex: left;
+	        flex: left;
+	font-size: 18rpx;
+	line-height: 25rpx;
+}
+.logisticsService_img{
+	margin: -5rpx -30rpx;
+}
+.logisticsService_img image{
+	margin: 0 10rpx;
+}
+.button1{
+	margin-left: 120rpx;
+	margin-top: 80rpx;
+	height: 85rpx;
+	width: 500rpx;
+	border-radius: 100rpx;
+	background-image: -o-linear-gradient(135deg, #96deda 0%, #8ec5fc 100%);
+	background-image: linear-gradient(-45deg, #96deda 0%, #8ec5fc 100%);
+	vertical-align: middle;
+	text-align: center;
+}
+.button_s{
+	line-height: 85rpx;
+	vertical-align: middle;
+	text-align: center;
+	vertical-align:middle;
+	color: #FFFFFF;
+	font-size: 37rpx;
+}
+

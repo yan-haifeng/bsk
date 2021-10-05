@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zime.bsk.dao.CakeSpecsMapper">
+  <resultMap id="BaseResultMap" type="com.zime.bsk.entity.CakeSpecs">
+    <id column="cakespecs_id" jdbcType="INTEGER" property="cakespecsId" />
+    <result column="cakespecs_cakeid" jdbcType="INTEGER" property="cakespecsCakeid" />
+    <result column="cakespecs_name" jdbcType="VARCHAR" property="cakespecsName" />
+    <result column="cakespecs_price" jdbcType="DOUBLE" property="cakespecsPrice" />
+    <result column="cakespecs_sweet" jdbcType="INTEGER" property="cakespecsSweet" />
+    <result column="cakespecs_size" jdbcType="VARCHAR" property="cakespecsSize" />
+    <result column="cakespecs_person" jdbcType="VARCHAR" property="cakespecsPerson" />
+    <result column="cakespecs_tableware" jdbcType="VARCHAR" property="cakespecsTableware" />
+    <result column="cakespecs_time" jdbcType="VARCHAR" property="cakespecsTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    cakespecs_id, cakespecs_cakeid, cakespecs_name, cakespecs_price, cakespecs_sweet, 
+    cakespecs_size, cakespecs_person, cakespecs_tableware, cakespecs_time
+  </sql>
+  <select id="selectByExample" parameterType="com.zime.bsk.entity.CakeSpecsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from cakespecs
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cakespecs
+    where cakespecs_id = #{cakespecsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cakespecs
+    where cakespecs_id = #{cakespecsId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zime.bsk.entity.CakeSpecsExample">
+    delete from cakespecs
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zime.bsk.entity.CakeSpecs">
+    insert into cakespecs (cakespecs_id, cakespecs_cakeid, cakespecs_name, 
+      cakespecs_price, cakespecs_sweet, cakespecs_size, 
+      cakespecs_person, cakespecs_tableware, cakespecs_time
+      )
+    values (#{cakespecsId,jdbcType=INTEGER}, #{cakespecsCakeid,jdbcType=INTEGER}, #{cakespecsName,jdbcType=VARCHAR}, 
+      #{cakespecsPrice,jdbcType=DOUBLE}, #{cakespecsSweet,jdbcType=INTEGER}, #{cakespecsSize,jdbcType=VARCHAR}, 
+      #{cakespecsPerson,jdbcType=VARCHAR}, #{cakespecsTableware,jdbcType=VARCHAR}, #{cakespecsTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zime.bsk.entity.CakeSpecs">
+    insert into cakespecs
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cakespecsId != null">
+        cakespecs_id,
+      </if>
+      <if test="cakespecsCakeid != null">
+        cakespecs_cakeid,
+      </if>
+      <if test="cakespecsName != null">
+        cakespecs_name,
+      </if>
+      <if test="cakespecsPrice != null">
+        cakespecs_price,
+      </if>
+      <if test="cakespecsSweet != null">
+        cakespecs_sweet,
+      </if>
+      <if test="cakespecsSize != null">
+        cakespecs_size,
+      </if>
+      <if test="cakespecsPerson != null">
+        cakespecs_person,
+      </if>
+      <if test="cakespecsTableware != null">
+        cakespecs_tableware,
+      </if>
+      <if test="cakespecsTime != null">
+        cakespecs_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cakespecsId != null">
+        #{cakespecsId,jdbcType=INTEGER},
+      </if>
+      <if test="cakespecsCakeid != null">
+        #{cakespecsCakeid,jdbcType=INTEGER},
+      </if>
+      <if test="cakespecsName != null">
+        #{cakespecsName,jdbcType=VARCHAR},
+      </if>
+      <if test="cakespecsPrice != null">
+        #{cakespecsPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="cakespecsSweet != null">
+        #{cakespecsSweet,jdbcType=INTEGER},
+      </if>
+      <if test="cakespecsSize != null">
+        #{cakespecsSize,jdbcType=VARCHAR},
+      </if>
+      <if test="cakespecsPerson != null">
+        #{cakespecsPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="cakespecsTableware != null">
+        #{cakespecsTableware,jdbcType=VARCHAR},
+      </if>
+      <if test="cakespecsTime != null">
+        #{cakespecsTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zime.bsk.entity.CakeSpecsExample" resultType="java.lang.Long">
+    select count(*) from cakespecs
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update cakespecs
+    <set>
+      <if test="record.cakespecsId != null">
+        cakespecs_id = #{record.cakespecsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cakespecsCakeid != null">
+        cakespecs_cakeid = #{record.cakespecsCakeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cakespecsName != null">
+        cakespecs_name = #{record.cakespecsName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cakespecsPrice != null">
+        cakespecs_price = #{record.cakespecsPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="record.cakespecsSweet != null">
+        cakespecs_sweet = #{record.cakespecsSweet,jdbcType=INTEGER},
+      </if>
+      <if test="record.cakespecsSize != null">
+        cakespecs_size = #{record.cakespecsSize,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cakespecsPerson != null">
+        cakespecs_person = #{record.cakespecsPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cakespecsTableware != null">
+        cakespecs_tableware = #{record.cakespecsTableware,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cakespecsTime != null">
+        cakespecs_time = #{record.cakespecsTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update cakespecs
+    set cakespecs_id = #{record.cakespecsId,jdbcType=INTEGER},
+      cakespecs_cakeid = #{record.cakespecsCakeid,jdbcType=INTEGER},
+      cakespecs_name = #{record.cakespecsName,jdbcType=VARCHAR},
+      cakespecs_price = #{record.cakespecsPrice,jdbcType=DOUBLE},
+      cakespecs_sweet = #{record.cakespecsSweet,jdbcType=INTEGER},
+      cakespecs_size = #{record.cakespecsSize,jdbcType=VARCHAR},
+      cakespecs_person = #{record.cakespecsPerson,jdbcType=VARCHAR},
+      cakespecs_tableware = #{record.cakespecsTableware,jdbcType=VARCHAR},
+      cakespecs_time = #{record.cakespecsTime,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zime.bsk.entity.CakeSpecs">
+    update cakespecs
+    <set>
+      <if test="cakespecsCakeid != null">
+        cakespecs_cakeid = #{cakespecsCakeid,jdbcType=INTEGER},
+      </if>
+      <if test="cakespecsName != null">
+        cakespecs_name = #{cakespecsName,jdbcType=VARCHAR},
+      </if>
+      <if test="cakespecsPrice != null">
+        cakespecs_price = #{cakespecsPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="cakespecsSweet != null">
+        cakespecs_sweet = #{cakespecsSweet,jdbcType=INTEGER},
+      </if>
+      <if test="cakespecsSize != null">
+        cakespecs_size = #{cakespecsSize,jdbcType=VARCHAR},
+      </if>
+      <if test="cakespecsPerson != null">
+        cakespecs_person = #{cakespecsPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="cakespecsTableware != null">
+        cakespecs_tableware = #{cakespecsTableware,jdbcType=VARCHAR},
+      </if>
+      <if test="cakespecsTime != null">
+        cakespecs_time = #{cakespecsTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cakespecs_id = #{cakespecsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zime.bsk.entity.CakeSpecs">
+    update cakespecs
+    set cakespecs_cakeid = #{cakespecsCakeid,jdbcType=INTEGER},
+      cakespecs_name = #{cakespecsName,jdbcType=VARCHAR},
+      cakespecs_price = #{cakespecsPrice,jdbcType=DOUBLE},
+      cakespecs_sweet = #{cakespecsSweet,jdbcType=INTEGER},
+      cakespecs_size = #{cakespecsSize,jdbcType=VARCHAR},
+      cakespecs_person = #{cakespecsPerson,jdbcType=VARCHAR},
+      cakespecs_tableware = #{cakespecsTableware,jdbcType=VARCHAR},
+      cakespecs_time = #{cakespecsTime,jdbcType=VARCHAR}
+    where cakespecs_id = #{cakespecsId,jdbcType=INTEGER}
+  </update>
+</mapper>

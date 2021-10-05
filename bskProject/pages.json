@@ -1,0 +1,202 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			// 首页
+			"path": "pages/index/index",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"backgroundColor": "#FCFCFC"
+			}
+		},
+		{
+			// 分类
+			"path": "pages/index/classify",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+				// ,"enablePullDownRefresh": true
+			}
+		},
+		{
+			// 购物车
+			"path": "pages/index/cakecar",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"navigationBarTitleText": "购物车",
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"backgroundColor": "#FCFCFC"
+			}
+		},
+		{
+			// 我的
+			"path": "pages/index/me",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"navigationBarTitleText": "我的",
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"enablePullDownRefresh": true
+
+			}
+		},
+		{
+			// 登录
+			"path": "pages/login/login",
+			"style": {
+				"app-plus": {
+					"titleNView": true
+				},
+				"navigationBarTitleText": "登录",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+			// 注册
+			"path": "pages/login/register",
+			"style": {
+				"app-plus": {
+					"titleNView": true
+				},
+				"navigationBarTitleText": "注册",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+			// 蛋糕详情
+			"path": "pages/secondary/cake-details",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			//订单时间
+			"path": "pages/secondary/deliverytime",
+			"style": {}
+		},
+		{
+			//评论
+			"path": "pages/secondary/comment",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			//评论1
+			"path": "pages/secondary/comment.1",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			//订单详情
+			"path": "pages/secondary/order-details",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			//地址管理
+			"path": "pages/secondary/address",
+			"style": {
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTitleText": "地址管理",
+				"backgroundColorTop": "#ffffff",
+				"backgroundColorBottom": "#ffffff"
+			}
+		}, {
+			//编辑收件人地址
+			"path": "pages/secondary/edit",
+			"style": {
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTitleText": "编辑收件人地址",
+				"backgroundColorTop": "#ffffff",
+				"backgroundColorBottom": "#ffffff"
+			}
+		},
+		{
+			//支付页
+			"path": "pages/secondary/payment",
+			"style": {
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTitleText": "订单支付",
+				"backgroundColorTop": "#ffffff",
+				"backgroundColorBottom": "#ffffff"
+			}
+		}, 
+		{
+			//支付成功
+			"path": "pages/secondary/success",
+			"style": {
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTitleText": "支付成功",
+				"backgroundColorTop": "#ffffff",
+				"backgroundColorBottom": "#ffffff"
+			}
+		},
+		{
+			//支付成功
+			"path": "pages/secondary/fail",
+			"style": {
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTitleText": "支付失败",
+				"backgroundColorTop": "#ffffff",
+				"backgroundColorBottom": "#ffffff"
+			}
+		},
+		{
+			//支付宝页面
+			"path": "pages/secondary/web-view",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "贝思客",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#D8D8D8",
+		"selectedColor": "#FF8097",
+		"backgroundColor": "#FFFFFF",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"text": "首页",
+			"iconPath": "static/index.png",
+			"selectedIconPath": "static/index_click.png"
+		}, {
+			"pagePath": "pages/index/classify",
+			"text": "分类",
+			"iconPath": "static/classify.png",
+			"selectedIconPath": "static/classify_click.png"
+		}, {
+			"pagePath": "pages/index/cakecar",
+			"text": "购物车",
+			"iconPath": "static/cakecar.png",
+			"selectedIconPath": "static/cakecar_click.png"
+		}, {
+			"pagePath": "pages/index/me",
+			"text": "我的",
+			"iconPath": "static/me.png",
+			"selectedIconPath": "static/me_click.png"
+		}]
+	}
+}

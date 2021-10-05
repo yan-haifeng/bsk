@@ -1,0 +1,238 @@
+更改首页折扣蛋糕和精品蛋糕的随机时间-更新时间h小时m分钟
+@RequestMapping(value = "/cakeInfo/setUpdateTime")
+	@RequestParam(value = "h", defaultValue = "1")Integer h,
+	@RequestParam(value = "m", defaultValue = "30")Integer m
+
+获取今日折扣蛋糕
+@RequestMapping(value = "/cakeInfo/getCakeInfoByDay")
+
+获取人气蛋糕
+@RequestMapping(value = "/cakeInfo/getCakeInfoByPopulity")
+	@RequestParam(value = "randomNum", defaultValue = "1")Integer randomNum,
+	@RequestParam(value = "randomSize", defaultValue = "3")Integer randomSize
+
+获取所有蛋糕信息-默认不分页
+@RequestMapping(value = "/cakeInfo/getAllCake")
+	@RequestParam(value="page", defaultValue="0") Integer page,
+	@RequestParam(value="limit", defaultValue="0")Integer limit
+
+通过id获取蛋糕信息
+@RequestMapping(value = "/cakeInfo/getCakeById")
+Integer cakeId
+
+通过用户id获取用户所有未购买的购物车信息
+@RequestMapping(value = "/cakeCar/getAllCakeCarByUserIdNotBuy")
+Integer carUserid
+
+添加购物车-有重复添加则修改数量
+@RequestMapping(value = "/cakeCar/addCakeCar")
+CakeCar cakeCar
+
+通过用户id删除所有用户购物车
+@RequestMapping(value = "/cakeCar/removeCakeCarByUserId")
+Integer carUserid
+
+通过一级类别id获取所有蛋糕-默认不分页
+@RequestMapping(value = "/cakeInfo/getAllCakeInfoByClassId")
+	Integer cakeClassid,
+	@RequestParam(value="page", defaultValue="0") Integer page,
+	@RequestParam(value="limit", defaultValue="0")Integer limit
+
+通过二级类别id获取所有蛋糕-默认不分页
+@RequestMapping(value = "/cakeInfo/getAllCakeInfoByClassMinId")
+	Integer cakeClassminid,
+	@RequestParam(value="page", defaultValue="0") Integer page,
+	@RequestParam(value="limit", defaultValue="0")Integer limit
+
+获取所有一级类别
+@RequestMapping(value = "/cakeClass/getAllCakeClass")
+
+通过蛋糕一级类别id获取到所有对应二级的类别信息
+@RequestMapping(value = "/cakeClassMin/getAllCakeClassMinByClassId")
+Integer cakeclassminClassid
+
+通过用户id获取用户所有地址
+@RequestMapping(value = "/address/getAllAddressByUserId")
+Integer addressUserid
+
+通过id获取地址
+@RequestMapping(value = "/address/getAddressById")
+Integer addressId
+
+添加用户地址
+@RequestMapping(value = "/address/addAddress")
+Address address
+
+修改用户
+ @RequestMapping(value = "/user/editUser")
+User user
+
+修改用户地址
+@RequestMapping(value = "/address/editAddress")
+Address address
+
+通过地址id删除用户地址
+@RequestMapping(value = "/address/removeAddress")
+Integer addressId
+
+
+
+-------------------------------------------------------------------------------------UserController--------------------------------------------------------------------------------------
+
+通过验证码用户登录
+@RequestMapping(value = "/loginByPhone")
+User user, @RequestParam(value = "code", defaultValue = "0")String code, HttpServletRequest request
+
+通过手机号密码登录
+@RequestMapping(value = "/loginByPwd")
+User user, HttpServletRequest request
+
+判断用户是否登录
+@RequestMapping(value = "/isLogin")
+HttpServletRequest request
+
+退出登录用户
+@RequestMapping(value = "/quitLogin")
+HttpServletRequest request
+
+注册账户
+@RequestMapping(value = "/register")
+User user, @RequestParam(value = "code", defaultValue = "0")
+
+通过手机号查询用户
+@RequestMapping(value = "/user/getUserByPhone")
+User user
+
+通过id查询用户
+@RequestMapping(value = "/user/getUserById")
+Integer userId
+
+修改用户
+@RequestMapping(value = "/user/editUser")
+User user
+
+通过id删除用户
+@RequestMapping(value = "/user/removeUser")
+Integer userId
+
+
+
+-------------------------------------------------------------------------------------AdderssController--------------------------------------------------------------------------------------
+
+通过用户id获取用户所有地址
+@RequestMapping(value = "/address/getAllAddressByUserId")
+Integer addressUserid
+
+通过id获取地址
+@RequestMapping(value = "/address/getAddressById")
+Integer addressId
+
+添加用户地址
+@RequestMapping(value = "/address/addAddress")
+Address address
+
+修改用户地址
+@RequestMapping(value = "/address/editAddress")
+Address address
+
+通过地址id删除用户地址
+@RequestMapping(value = "/address/removeAddress")
+Integer addressId
+
+
+
+-------------------------------------------------------------------------------------AdderssController--------------------------------------------------------------------------------------
+
+通过用户id获取用户所有未购买的购物车信息
+@RequestMapping(value = "/cakeCar/getAllCakeCarByUserIdNotBuy")
+Integer carUserid
+
+通过id获取用户对应购物车信息
+@RequestMapping(value = "/cakeCar/getCakeCarById")
+Integer carId
+
+添加购物车
+@RequestMapping(value = "/cakeCar/addCakeCar")
+CakeCar cakeCar
+
+修改购物车
+@RequestMapping(value = "/cakeCar/editCakeCar")
+CakeCar cakeCar
+
+通过id删除购物车
+@RequestMapping(value = "/cakeCar/removeCakeCar")
+Integer carId
+
+
+
+-------------------------------------------------------------------------------------CakeClassController--------------------------------------------------------------------------------------
+
+获取所有一级类别
+@RequestMapping(value = "/cakeClass/getAllCakeClass")
+
+通过id获取对应一级蛋糕类别信息
+@RequestMapping(value = "/cakeClass/getCakeClassById")
+Integer cakeclassId
+
+添加蛋糕一级类别
+@RequestMapping(value = "/cakeClass/addCakeClass")
+CakeClass cakeClass
+
+修改蛋糕一级类别
+@RequestMapping(value = "/cakeClass/editCakeClass")
+CakeClass cakeClass
+
+通过id删除蛋糕一级类别
+@RequestMapping(value = "/cakeClass/removeCakeClass")
+Integer cakeclassId
+
+
+
+-------------------------------------------------------------------------------------CakeClassMinController--------------------------------------------------------------------------------------
+
+通过蛋糕一级类别id获取到所有对应二级的类别信息
+@RequestMapping(value = "/cakeClassMin/getAllCakeClassMinByClassId")
+Integer cakeclassminClassid
+
+通过蛋糕二级类别id获取到对应二级的类别信息
+@RequestMapping(value = "/cakeClassMin/getCakeClassMinById")
+Integer cakeclassminId
+
+添加蛋糕二级类别信息
+@RequestMapping(value = "/cakeClassMin/addCakeClassMin")
+CakeClassMin cakeClassMin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

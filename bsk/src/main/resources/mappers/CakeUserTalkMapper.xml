@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zime.bsk.dao.CakeUserTalkMapper">
+  <resultMap id="BaseResultMap" type="com.zime.bsk.entity.CakeUserTalk">
+    <id column="talk_id" jdbcType="INTEGER" property="talkId" />
+    <result column="talk_userid" jdbcType="INTEGER" property="talkUserid" />
+    <result column="talk_cakeid" jdbcType="INTEGER" property="talkCakeid" />
+    <result column="talk_commoditygrade" jdbcType="INTEGER" property="talkCommoditygrade" />
+    <result column="talk_logisticsgrade" jdbcType="INTEGER" property="talkLogisticsgrade" />
+    <result column="talk_servicegrade" jdbcType="INTEGER" property="talkServicegrade" />
+    <result column="talk_isimg" jdbcType="INTEGER" property="talkIsimg" />
+    <result column="talk_img" jdbcType="VARCHAR" property="talkImg" />
+    <result column="talk_info" jdbcType="VARCHAR" property="talkInfo" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    talk_id, talk_userid, talk_cakeid, talk_commoditygrade, talk_logisticsgrade, talk_servicegrade, 
+    talk_isimg, talk_img, talk_info
+  </sql>
+  <select id="selectByExample" parameterType="com.zime.bsk.entity.CakeUserTalkExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from cakeusertalk
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cakeusertalk
+    where talk_id = #{talkId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cakeusertalk
+    where talk_id = #{talkId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zime.bsk.entity.CakeUserTalkExample">
+    delete from cakeusertalk
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zime.bsk.entity.CakeUserTalk">
+    insert into cakeusertalk (talk_id, talk_userid, talk_cakeid, 
+      talk_commoditygrade, talk_logisticsgrade, 
+      talk_servicegrade, talk_isimg, talk_img, 
+      talk_info)
+    values (#{talkId,jdbcType=INTEGER}, #{talkUserid,jdbcType=INTEGER}, #{talkCakeid,jdbcType=INTEGER}, 
+      #{talkCommoditygrade,jdbcType=INTEGER}, #{talkLogisticsgrade,jdbcType=INTEGER}, 
+      #{talkServicegrade,jdbcType=INTEGER}, #{talkIsimg,jdbcType=INTEGER}, #{talkImg,jdbcType=VARCHAR}, 
+      #{talkInfo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zime.bsk.entity.CakeUserTalk">
+    insert into cakeusertalk
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="talkId != null">
+        talk_id,
+      </if>
+      <if test="talkUserid != null">
+        talk_userid,
+      </if>
+      <if test="talkCakeid != null">
+        talk_cakeid,
+      </if>
+      <if test="talkCommoditygrade != null">
+        talk_commoditygrade,
+      </if>
+      <if test="talkLogisticsgrade != null">
+        talk_logisticsgrade,
+      </if>
+      <if test="talkServicegrade != null">
+        talk_servicegrade,
+      </if>
+      <if test="talkIsimg != null">
+        talk_isimg,
+      </if>
+      <if test="talkImg != null">
+        talk_img,
+      </if>
+      <if test="talkInfo != null">
+        talk_info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="talkId != null">
+        #{talkId,jdbcType=INTEGER},
+      </if>
+      <if test="talkUserid != null">
+        #{talkUserid,jdbcType=INTEGER},
+      </if>
+      <if test="talkCakeid != null">
+        #{talkCakeid,jdbcType=INTEGER},
+      </if>
+      <if test="talkCommoditygrade != null">
+        #{talkCommoditygrade,jdbcType=INTEGER},
+      </if>
+      <if test="talkLogisticsgrade != null">
+        #{talkLogisticsgrade,jdbcType=INTEGER},
+      </if>
+      <if test="talkServicegrade != null">
+        #{talkServicegrade,jdbcType=INTEGER},
+      </if>
+      <if test="talkIsimg != null">
+        #{talkIsimg,jdbcType=INTEGER},
+      </if>
+      <if test="talkImg != null">
+        #{talkImg,jdbcType=VARCHAR},
+      </if>
+      <if test="talkInfo != null">
+        #{talkInfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zime.bsk.entity.CakeUserTalkExample" resultType="java.lang.Long">
+    select count(*) from cakeusertalk
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update cakeusertalk
+    <set>
+      <if test="record.talkId != null">
+        talk_id = #{record.talkId,jdbcType=INTEGER},
+      </if>
+      <if test="record.talkUserid != null">
+        talk_userid = #{record.talkUserid,jdbcType=INTEGER},
+      </if>
+      <if test="record.talkCakeid != null">
+        talk_cakeid = #{record.talkCakeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.talkCommoditygrade != null">
+        talk_commoditygrade = #{record.talkCommoditygrade,jdbcType=INTEGER},
+      </if>
+      <if test="record.talkLogisticsgrade != null">
+        talk_logisticsgrade = #{record.talkLogisticsgrade,jdbcType=INTEGER},
+      </if>
+      <if test="record.talkServicegrade != null">
+        talk_servicegrade = #{record.talkServicegrade,jdbcType=INTEGER},
+      </if>
+      <if test="record.talkIsimg != null">
+        talk_isimg = #{record.talkIsimg,jdbcType=INTEGER},
+      </if>
+      <if test="record.talkImg != null">
+        talk_img = #{record.talkImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.talkInfo != null">
+        talk_info = #{record.talkInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update cakeusertalk
+    set talk_id = #{record.talkId,jdbcType=INTEGER},
+      talk_userid = #{record.talkUserid,jdbcType=INTEGER},
+      talk_cakeid = #{record.talkCakeid,jdbcType=INTEGER},
+      talk_commoditygrade = #{record.talkCommoditygrade,jdbcType=INTEGER},
+      talk_logisticsgrade = #{record.talkLogisticsgrade,jdbcType=INTEGER},
+      talk_servicegrade = #{record.talkServicegrade,jdbcType=INTEGER},
+      talk_isimg = #{record.talkIsimg,jdbcType=INTEGER},
+      talk_img = #{record.talkImg,jdbcType=VARCHAR},
+      talk_info = #{record.talkInfo,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zime.bsk.entity.CakeUserTalk">
+    update cakeusertalk
+    <set>
+      <if test="talkUserid != null">
+        talk_userid = #{talkUserid,jdbcType=INTEGER},
+      </if>
+      <if test="talkCakeid != null">
+        talk_cakeid = #{talkCakeid,jdbcType=INTEGER},
+      </if>
+      <if test="talkCommoditygrade != null">
+        talk_commoditygrade = #{talkCommoditygrade,jdbcType=INTEGER},
+      </if>
+      <if test="talkLogisticsgrade != null">
+        talk_logisticsgrade = #{talkLogisticsgrade,jdbcType=INTEGER},
+      </if>
+      <if test="talkServicegrade != null">
+        talk_servicegrade = #{talkServicegrade,jdbcType=INTEGER},
+      </if>
+      <if test="talkIsimg != null">
+        talk_isimg = #{talkIsimg,jdbcType=INTEGER},
+      </if>
+      <if test="talkImg != null">
+        talk_img = #{talkImg,jdbcType=VARCHAR},
+      </if>
+      <if test="talkInfo != null">
+        talk_info = #{talkInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where talk_id = #{talkId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zime.bsk.entity.CakeUserTalk">
+    update cakeusertalk
+    set talk_userid = #{talkUserid,jdbcType=INTEGER},
+      talk_cakeid = #{talkCakeid,jdbcType=INTEGER},
+      talk_commoditygrade = #{talkCommoditygrade,jdbcType=INTEGER},
+      talk_logisticsgrade = #{talkLogisticsgrade,jdbcType=INTEGER},
+      talk_servicegrade = #{talkServicegrade,jdbcType=INTEGER},
+      talk_isimg = #{talkIsimg,jdbcType=INTEGER},
+      talk_img = #{talkImg,jdbcType=VARCHAR},
+      talk_info = #{talkInfo,jdbcType=VARCHAR}
+    where talk_id = #{talkId,jdbcType=INTEGER}
+  </update>
+</mapper>

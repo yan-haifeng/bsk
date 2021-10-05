@@ -1,0 +1,14 @@
+{
+  "backgroundColor": "#FCFCFC",
+  "titleNView": false,
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "uni-nav-bar1": "/components/uni-nav-bar1/uni-nav-bar1",
+    "uni-countdown": "/components/uni-countdown/uni-countdown",
+    "cake-card-big": "/components/my-components/cake-card-big",
+    "cake-card-mini": "/components/my-components/cake-card-mini",
+    "mescroll-uni": "/components/mescroll-uni/mescroll-uni",
+    "cake-infomation-bar": "/components/my-components/cake-infomation",
+    "popup-layer": "/components/popup-layer/popup-layer"
+  }
+}

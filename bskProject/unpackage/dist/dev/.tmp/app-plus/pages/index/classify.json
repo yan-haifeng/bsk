@@ -1,0 +1,12 @@
+{
+  "titleNView": false,
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "wuc-tab": "/components/wuc-tab/wuc-tab",
+    "wuc-tab1": "/components/wuc-tab1/wuc-tab1",
+    "cake-card-mini": "/components/my-components/cake-card-mini",
+    "mescroll-uni": "/components/mescroll-uni/mescroll-uni",
+    "cake-infomation-bar": "/components/my-components/cake-infomation",
+    "popup-layer": "/components/popup-layer/popup-layer"
+  }
+}

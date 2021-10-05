@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "购物车",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "backgroundColor": "#FCFCFC",
+  "titleNView": false,
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "uni-nav-bar1": "/components/uni-nav-bar1/uni-nav-bar1",
+    "cake-card-mini": "/components/my-components/cake-card-mini",
+    "cake-car-item": "/components/my-components/cake-car-item"
+  }
+}

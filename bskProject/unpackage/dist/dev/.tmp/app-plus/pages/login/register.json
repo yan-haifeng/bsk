@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "注册",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "titleNView": true,
+  "usingComponents": {
+    "vcodebtn": "/components/my-components/vcodebtn"
+  }
+}

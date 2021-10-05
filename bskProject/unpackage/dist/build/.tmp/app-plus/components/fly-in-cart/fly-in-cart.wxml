@@ -1,0 +1,1 @@
+<view class="container"><block wx:if="{{!hide_good_box}}"><view class="good_box" style="{{('left:'+bus_x+'px;top:'+bus_y+'px;')}}"><image src="{{imgUrl}}"></image></view></block></view>

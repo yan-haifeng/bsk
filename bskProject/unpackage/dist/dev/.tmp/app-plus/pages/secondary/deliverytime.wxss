@@ -1,0 +1,77 @@
+
+.contentBox{
+	margin: 30rpx 20rpx;
+	border: 1px solid #DDDDDD;
+	-webkit-box-shadow: 1px 1px 5px #ddd;
+	        box-shadow: 1px 1px 5px #ddd;
+}
+.timeSlot{
+	font-size: 28rpx;
+	margin: 20rpx;
+	padding: 10rpx;
+	border-top: 1px solid #FAFAFA;
+}
+.timeBox{
+	width: 100%;
+	overflow: hidden;
+}
+.timeBox .timeStyle{
+	float: left;
+	width: 30%;
+	padding: 0;
+	font-size: 24rpx;
+	color: #dddddd;
+	background: #FFFFFF;
+	border: 3rpx solid #dddddd;
+	margin-top: 20rpx;
+	margin-left: 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.timeBox .timeStyle::after{
+	border: 0;
+}
+.timeBox .active{
+	background: -webkit-gradient(linear, left top, right top, from(#18EBF2), to(#3BC2C3));
+	background: -o-linear-gradient(left, #18EBF2, #3BC2C3);
+	background: linear-gradient(90deg, #18EBF2, #3BC2C3);
+	color: #FFFFFF;
+}
+.timeBox button:nth-child(3n+1){
+	margin-left: 0rpx;
+}
+.deliveryTimeBox{
+	font-size: 28rpx;
+	margin: 20rpx;
+	margin-top: 40rpx;
+	padding: 10rpx;
+	border-top: 1px solid #FAFAFA;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+.deliveryTimeBox view{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+}
+.deliveryTime{
+	text-align: right;
+	color: #FF3765;
+}
+.determine{
+	height: 100rpx;
+	line-height: 100rpx;
+	font-size: 40rpx;
+	color: #FFFFFF;
+	margin: 40rpx 80rpx;
+	border-radius: 5rem;
+	background: -webkit-gradient(linear, left top, right top, from(#FE7196), to(#FF1850));
+	background: -o-linear-gradient(left, #FE7196, #FF1850);
+	background: linear-gradient(to right, #FE7196, #FF1850);
+	-webkit-box-shadow: 1px 3px 10px #bbbbbb;
+	        box-shadow: 1px 3px 10px #bbbbbb;
+}
+

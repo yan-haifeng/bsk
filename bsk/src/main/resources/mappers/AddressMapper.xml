@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zime.bsk.dao.AddressMapper">
+  <resultMap id="BaseResultMap" type="com.zime.bsk.entity.Address">
+    <id column="address_id" jdbcType="INTEGER" property="addressId" />
+    <result column="address_userid" jdbcType="INTEGER" property="addressUserid" />
+    <result column="address_name" jdbcType="VARCHAR" property="addressName" />
+    <result column="address_phone" jdbcType="VARCHAR" property="addressPhone" />
+    <result column="address_info" jdbcType="VARCHAR" property="addressInfo" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    address_id, address_userid, address_name, address_phone, address_info
+  </sql>
+  <select id="selectByExample" parameterType="com.zime.bsk.entity.AddressExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from address
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from address
+    where address_id = #{addressId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from address
+    where address_id = #{addressId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zime.bsk.entity.AddressExample">
+    delete from address
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zime.bsk.entity.Address">
+    insert into address (address_id, address_userid, address_name, 
+      address_phone, address_info)
+    values (#{addressId,jdbcType=INTEGER}, #{addressUserid,jdbcType=INTEGER}, #{addressName,jdbcType=VARCHAR}, 
+      #{addressPhone,jdbcType=VARCHAR}, #{addressInfo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zime.bsk.entity.Address">
+    insert into address
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="addressId != null">
+        address_id,
+      </if>
+      <if test="addressUserid != null">
+        address_userid,
+      </if>
+      <if test="addressName != null">
+        address_name,
+      </if>
+      <if test="addressPhone != null">
+        address_phone,
+      </if>
+      <if test="addressInfo != null">
+        address_info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="addressId != null">
+        #{addressId,jdbcType=INTEGER},
+      </if>
+      <if test="addressUserid != null">
+        #{addressUserid,jdbcType=INTEGER},
+      </if>
+      <if test="addressName != null">
+        #{addressName,jdbcType=VARCHAR},
+      </if>
+      <if test="addressPhone != null">
+        #{addressPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="addressInfo != null">
+        #{addressInfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zime.bsk.entity.AddressExample" resultType="java.lang.Long">
+    select count(*) from address
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update address
+    <set>
+      <if test="record.addressId != null">
+        address_id = #{record.addressId,jdbcType=INTEGER},
+      </if>
+      <if test="record.addressUserid != null">
+        address_userid = #{record.addressUserid,jdbcType=INTEGER},
+      </if>
+      <if test="record.addressName != null">
+        address_name = #{record.addressName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addressPhone != null">
+        address_phone = #{record.addressPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addressInfo != null">
+        address_info = #{record.addressInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update address
+    set address_id = #{record.addressId,jdbcType=INTEGER},
+      address_userid = #{record.addressUserid,jdbcType=INTEGER},
+      address_name = #{record.addressName,jdbcType=VARCHAR},
+      address_phone = #{record.addressPhone,jdbcType=VARCHAR},
+      address_info = #{record.addressInfo,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zime.bsk.entity.Address">
+    update address
+    <set>
+      <if test="addressUserid != null">
+        address_userid = #{addressUserid,jdbcType=INTEGER},
+      </if>
+      <if test="addressName != null">
+        address_name = #{addressName,jdbcType=VARCHAR},
+      </if>
+      <if test="addressPhone != null">
+        address_phone = #{addressPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="addressInfo != null">
+        address_info = #{addressInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where address_id = #{addressId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zime.bsk.entity.Address">
+    update address
+    set address_userid = #{addressUserid,jdbcType=INTEGER},
+      address_name = #{addressName,jdbcType=VARCHAR},
+      address_phone = #{addressPhone,jdbcType=VARCHAR},
+      address_info = #{addressInfo,jdbcType=VARCHAR}
+    where address_id = #{addressId,jdbcType=INTEGER}
+  </update>
+</mapper>

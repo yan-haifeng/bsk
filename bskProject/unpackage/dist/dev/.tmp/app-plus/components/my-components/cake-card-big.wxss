@@ -1,0 +1,85 @@
+
+.my-cake-card{
+	width: 100%;
+	height: 400rpx;
+	border-radius: 20rpx;
+	-webkit-box-shadow: -10rpx 10rpx 10rpx #F3F3F3;
+	        box-shadow: -10rpx 10rpx 10rpx #F3F3F3;
+	position: relative;
+	margin-bottom: 40rpx;
+}
+.my-cake-card image{
+	width: 100%;
+	height: 100%;
+	border-radius: 20rpx;
+}
+.card-content{
+	width: 100%;
+	height: 35%;
+	background: rgba(250,250,250,0.9);
+	position: absolute;
+	bottom: 0rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	padding: 20rpx 30rpx;
+	border-radius: 0 0 20rpx 20rpx;
+}
+.card-title{
+	float: left;
+	font-size: 36rpx;
+}
+.card-title-china{
+	font-size: 30rpx;
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5rpx;
+}
+.card-title-english{
+	font-size: 24rpx;
+	display: block;
+	color: #9e9e9e;
+}
+.card-pirce{
+	float: left;
+	margin-left: 20rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	height: 38rpx;
+}
+.card-pirce text{
+	font-size: 24rpx;
+	color: #9e9e9e;
+}
+.card-pirce .card-pirce-old{
+	text-decoration: line-through;
+	margin-right: 10rpx;
+}
+.card-pirce .card-pirce-new{
+	font-size: 30rpx;
+	color: #FF1850;
+	font-weight: bold;
+	margin-right: 5rpx;
+}
+.card-content .card-numBar{
+	position: relative;
+	top: 30rpx;
+	width: 50rpx;
+	height: 50rpx;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGoAAABqCAYAAABUIcSXAAAACXBIWXMAAAsSAAALEgHS3X78AAABUElEQVR4nO3csQ3CQBAAQTBUQ0L/XUAA3SCIyT4A/lfMxJZsaXWB/Sfvt9vluWN52+wHYIxQEUJFCBUhVIRQEUJFCBUhVMRx9MLH6fzN5/hbh/t16DoTFSFUhFARQkUIFSFUhFARQkUIFSFUhFARQkUIFSFUhFARQkUIFSFUhFARwzsTqxrdOajvfJioCKEihIoQKkKoCKEihIoQKkKoCKEihIoQKkKoCKEihIoQKkKoiGknvKMns6vdb9ZJsYmKECpCqAihIoSKECpCqAihIoSKmPZl4lNv+HbPWYpQEUJFCBUhVIRQEUJFCBUhVIRQEUJFCBUhVIRQEUJFCBUhVET+72L1k9tRJipCqAihIoSKECpCqAihIoSKECpCqAihIoSKECpCqAihIoSKECpCqAihIoZ3Jn79fz3emagIoSKEihAqQqgIoSKEihAqQqiIFx/mFYa0ckRsAAAAAElFTkSuQmCC);
+	background-size: 80% 80%;
+	float: right;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+

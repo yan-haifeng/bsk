@@ -1,0 +1,1 @@
+<view class="advertisement" style="width:100%;"><web-view src="{{'http://www.reloss.top:8888/bsk/alipay/payPhone?'+data}}" data-event-opts="{{[['message',[['message',['$event']]]]]}}" bindmessage="__e"></web-view></view>

@@ -1,0 +1,21 @@
+
+.get_code_btn {
+ 	width: 35%;
+ 	height: 50rpx;
+ 	margin-bottom: 10rpx;
+ 	border-radius: 40rpx;
+ 	background: -webkit-gradient(linear, left top, right top, from(#FE7196), to(#FF1850));
+ 	background: -o-linear-gradient(left, #FE7196, #FF1850);
+ 	background: linear-gradient(to right, #FE7196, #FF1850);
+ 	color: #fff;
+ 	float: right;
+ 	line-height: 50rpx;
+ 	text-align: center;
+ 	font-size: 24rpx;
+ 	-webkit-transform: translate(0,  25%);
+ 	    -ms-transform: translate(0,  25%);
+ 	        transform: translate(0,  25%);
+ 	-webkit-box-shadow: 6rpx 6rpx 20rpx #FE7196;
+ 	        box-shadow: 6rpx 6rpx 20rpx #FE7196;
+}
+

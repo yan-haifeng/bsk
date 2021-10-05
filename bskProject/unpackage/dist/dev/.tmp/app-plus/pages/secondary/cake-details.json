@@ -1,0 +1,8 @@
+{
+  "titleNView": false,
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "cake-infomation-bar": "/components/my-components/cake-infomation",
+    "shop-car-animation": "/components/fly-in-cart/fly-in-cart"
+  }
+}

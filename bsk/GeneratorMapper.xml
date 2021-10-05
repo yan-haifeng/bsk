@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!--  指定连接数据库的JDBC驱动包所在位置，指定到你本机的完整路径-->
+    <classPathEntry location="F:/U2soft/JavaWeb/package/mysql-connector-java-8.0.12/mysql-connector-java-8.0.12.jar"/>
+
+    <!--  配置table表信息内容体，targetRuntime指定采用MyBatis3的版本-->
+    <context id="tables" targetRuntime="MyBatis3">
+        <!--  抑制生成注释，由于生成的注释都是英文的，可以不让它生成-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- 配置数据库连接信息 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/bskdb?serverTimezone=Asia/Shanghai&amp;characterEncoding=utf-8&amp;useSSL=false"
+                        userId="root"
+                        password="">
+            <property name="nullCatalogMeansCurrent" value="true" />
+        </jdbcConnection>
+
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 指定Javabean生成位置,targetProject指定entity类的包名，targetProject指定生成的entity放在IntelliJ/eclipse的哪个工程下面 -->
+        <javaModelGenerator targetPackage="com.zime.bsk.entity" targetProject=".\src\main\java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="true"/>
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- 指定SQL映射文件生成位置,targetProject指定mapper.xml类的包名，targetProject指定生成的mapper.xml放在IntelliJ/eclipse的哪个工程下面 -->
+        <sqlMapGenerator targetPackage="mappers" targetProject=".\src\main\resources">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 指定DAO接口生成位置,targetProject指定dao类的包名，targetProject指定生成的dao放在IntelliJ/eclipse的哪个工程下面 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zime.bsk.dao" targetProject=".\src\main\java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 数据库表名及对应的java模型类名 -->
+        <!--<table tableName="user"-->
+               <!--domainObjectName="User"-->
+               <!--enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true"-->
+               <!--enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true"/>-->
+        <!--<table tableName="address"-->
+               <!--domainObjectName="Address"-->
+               <!--enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true"-->
+               <!--enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true"/>-->
+        <!--<table tableName="cakecar"-->
+               <!--domainObjectName="CakeCar"-->
+               <!--enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true"-->
+               <!--enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true"/>-->
+        <!--<table tableName="cakeclass"-->
+               <!--domainObjectName="CakeClass"-->
+               <!--enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true"-->
+               <!--enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true"/>-->
+        <!--<table tableName="cakeclassmin"-->
+               <!--domainObjectName="CakeClassMin"-->
+               <!--enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true"-->
+               <!--enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true"/>-->
+        <!--<table tableName="cakeinfo"-->
+               <!--domainObjectName="CakeInfo"-->
+               <!--enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true"-->
+               <!--enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true"/>-->
+        <table tableName="cakeorderinfo"
+               domainObjectName="CakeOrderInfo"
+               enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true"
+               enableSelectByExample="true"
+               selectByExampleQueryId="true"/>
+        <!--<table tableName="cakespecs"-->
+               <!--domainObjectName="CakeSpecs"-->
+               <!--enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true"-->
+               <!--enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true"/>-->
+        <!--<table tableName="cakeusertalk"-->
+               <!--domainObjectName="CakeUserTalk"-->
+               <!--enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true"-->
+               <!--enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true"/>-->
+
+    </context>
+</generatorConfiguration>

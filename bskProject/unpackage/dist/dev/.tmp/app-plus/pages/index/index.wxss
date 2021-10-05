@@ -1,0 +1,75 @@
+
+.swiper {
+	height: 350rpx;
+}
+swiper-item image {
+	width: 100%;
+	height: 350rpx;
+}
+.my-card {
+	background-color: #fff;
+	width: 100%;
+	border-radius: 20rpx;
+	background-color: #FFFFFF;
+	-webkit-box-shadow: 0rpx 10rpx 10rpx #F3F3F3;
+	        box-shadow: 0rpx 10rpx 10rpx #F3F3F3;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	padding: 0rpx 30rpx;
+	padding-bottom: 30rpx;
+	margin-bottom: 20rpx;
+}
+.menu {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 20rpx 0rpx;
+}
+.menu>view {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	font-size: 24rpx;
+	text-align: center;
+}
+.menu-item image {
+	width: 100rpx;
+	height: 100rpx;
+	display: block;
+	margin: 10rpx auto;
+}
+.item-card {
+	background-color: #fff;
+	width: 100%;
+	border-radius: 20rpx;
+	background-color: #FFFFFF;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	padding: 0rpx 30rpx;
+	margin-bottom: 20rpx;
+}
+.item-title {
+	font-weight: bold;
+}
+.cake-card-mini-box {
+	width: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+
